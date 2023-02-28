@@ -249,9 +249,59 @@ public class GameField {
     /**
      * Геттер.
      *
-     * @return размер игрового поля.
+     * @return массив, содержащий игровое поле.
      */
-    public int getFieldSize() {
-        return FIELD_SIZE;
+    public char[][] getField() {
+        return field;
+    }
+
+    /**
+     * Временно поставить символ в ячейку.
+     *
+     * @param row       номер строки.
+     * @param column    номер столбца.
+     * @param symbol    символ игрока.
+     */
+    public void setTempSymbol(int row, int column, PlayerSymbol symbol) {
+        field[row - 1][column - 1] = symbol.getValue();
+    }
+
+    /**
+     * Удалить временный символ из ячейки.
+     *
+     * @param row       номер строки.
+     * @param column    номер столбца.
+     */
+    public void removeTempSymbol(int row, int column) {
+        field[row - 1][column - 1] = EMPTY_CELL;
+    }
+
+    /**
+     * Получить текущий символ по координатам.
+     *
+     * @param row       номер строки.
+     * @param column    номер столбца.
+     * @return          символ игрока, который находится в выбранной ячейке.
+     */
+    public char getSymbolByCoordinates(int row, int column) {
+        return field[row - 1][column - 1];
+    }
+
+    /**
+     * Геттер.
+     *
+     * @return длина выигрышной комбинации.
+     */
+    public int getWinLength() {
+        return WIN_LENGTH;
+    }
+
+    /**
+     * Геттер.
+     *
+     * @return значение для пустой ячейки.
+     */
+    public char getEmptyCell() {
+        return EMPTY_CELL;
     }
 }

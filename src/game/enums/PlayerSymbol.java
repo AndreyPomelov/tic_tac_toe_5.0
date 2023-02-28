@@ -37,4 +37,14 @@ public enum PlayerSymbol {
     public char getValue() {
         return VALUE;
     }
+
+    /**
+     * Получить символ соперника.
+     *
+     * @param symbol    свой символ.
+     * @return          символ соперника.
+     */
+    public static PlayerSymbol getOpponentSymbol(PlayerSymbol symbol) {
+        return symbol == PlayerSymbol.X ? PlayerSymbol.O : PlayerSymbol.X;
+    }
 }
